@@ -11,6 +11,7 @@ import { Component, Vue } from "vue-property-decorator";
 export default class Test extends Vue {
   numbers: number[] = [];
   currentNumber = 0;
+  startdate = new Date();
 
   mounted(): void {
     const numbers = [];
@@ -26,7 +27,9 @@ export default class Test extends Vue {
     if (number - 1 == this.currentNumber) {
       this.currentNumber = number;
       if (number === 25) {
-        alert("finish");
+        const time = new Date();
+        const s = time.getSeconds() - this.startdate.getSeconds();
+        alert(s);
       }
     } else {
       this.currentNumber = 0;
